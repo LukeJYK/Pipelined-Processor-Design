@@ -1,0 +1,460 @@
+xrun: 18.09-s016: (c) Copyright 1995-2019 Cadence Design Systems, Inc.
+TOOL:	xrun	18.09-s016: Started on Dec 04, 2021 at 21:51:21 CST
+xrun
+	-gui
+	-notimingcheck
+	-f moduleList.f
+		/home/xchen/projects/cpu/361/submission/fp/*.v
+		/home/xchen/projects/cpu/361/submission/lib/or_gate.v
+		/home/xchen/projects/cpu/361/submission/lib/and_gate.v
+		/home/xchen/projects/cpu/361/submission/lib/not_gate.v
+		/home/xchen/projects/cpu/361/submission/lib/xor_gate.v
+		/home/xchen/projects/cpu/361/submission/lib/mux_32.v
+		/home/xchen/projects/cpu/361/submission/lib/nor_gate.v
+		/home/xchen/projects/cpu/361/submission/alu/ALU.v
+		/home/xchen/projects/cpu/361/submission/alu/mux8_1_1bit.v
+		/home/xchen/projects/cpu/361/submission/alu/mux.v
+		/home/xchen/projects/cpu/361/submission/alu/nor_32bit.v
+		/home/xchen/projects/cpu/361/submission/alu/SLT_signed.v
+		/home/xchen/projects/cpu/361/submission/alu/sll_32bit.v
+		/home/xchen/projects/cpu/361/submission/alu/SLT.v
+		/home/xchen/projects/cpu/361/submission/alu/or_gate_32.v
+		/home/xchen/projects/cpu/361/submission/alu/SUB_32bit.v
+		/home/xchen/projects/cpu/361/submission/alu/and_gate_32.v
+		/home/xchen/projects/cpu/361/submission/alu/full_adder_32bit.v
+		/home/xchen/projects/cpu/361/submission/alu/full_adder_1bit.v
+	-access r
+	-xmelab_args "-delay_mode zero -maxdelays"
+	pp_top_tb.sv
+	-s
+Recompiling... reason: file '../fp/stage3_ex.v' is newer than expected.
+	expected: Sat Dec  4 21:34:18 2021
+	actual:   Sat Dec  4 21:51:15 2021
+file: /home/xchen/projects/cpu/361/submission/fp/stage3_ex.v
+	module worklib.stage3_ex:v
+		errors: 0, warnings: 0
+file: /home/xchen/projects/cpu/361/submission/fp/syncram_fix.v
+        1'h2 : hex = 1;
+           |
+xmvlog: *W,INTOVF (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,45|11): bit overflow during conversion from text [2.5(IEEE)] (1 bits).
+        1'h3 : hex = 1;
+           |
+xmvlog: *W,INTOVF (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,46|11): bit overflow during conversion from text [2.5(IEEE)] (1 bits).
+        1'h4 : hex = 1;
+           |
+xmvlog: *W,INTOVF (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,47|11): bit overflow during conversion from text [2.5(IEEE)] (1 bits).
+        1'h5 : hex = 1;
+           |
+xmvlog: *W,INTOVF (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,48|11): bit overflow during conversion from text [2.5(IEEE)] (1 bits).
+        1'h6 : hex = 1;
+           |
+xmvlog: *W,INTOVF (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,49|11): bit overflow during conversion from text [2.5(IEEE)] (1 bits).
+        1'h7 : hex = 1;
+           |
+xmvlog: *W,INTOVF (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,50|11): bit overflow during conversion from text [2.5(IEEE)] (1 bits).
+        1'h8 : hex = 1;
+           |
+xmvlog: *W,INTOVF (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,51|11): bit overflow during conversion from text [2.5(IEEE)] (1 bits).
+        1'h9 : hex = 1;
+           |
+xmvlog: *W,INTOVF (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,52|11): bit overflow during conversion from text [2.5(IEEE)] (1 bits).
+        1'ha : hex = 1;
+           |
+xmvlog: *W,INTOVF (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,53|11): bit overflow during conversion from text [2.5(IEEE)] (1 bits).
+        1'hb : hex = 1;
+           |
+xmvlog: *W,INTOVF (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,54|11): bit overflow during conversion from text [2.5(IEEE)] (1 bits).
+        1'hc : hex = 1;
+           |
+xmvlog: *W,INTOVF (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,55|11): bit overflow during conversion from text [2.5(IEEE)] (1 bits).
+        1'hd : hex = 1;
+           |
+xmvlog: *W,INTOVF (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,56|11): bit overflow during conversion from text [2.5(IEEE)] (1 bits).
+        1'he : hex = 1;
+           |
+xmvlog: *W,INTOVF (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,57|11): bit overflow during conversion from text [2.5(IEEE)] (1 bits).
+        1'hf : hex = 1;
+           |
+xmvlog: *W,INTOVF (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,58|11): bit overflow during conversion from text [2.5(IEEE)] (1 bits).
+        1'hA : hex = 1;
+           |
+xmvlog: *W,INTOVF (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,59|11): bit overflow during conversion from text [2.5(IEEE)] (1 bits).
+        1'hB : hex = 1;
+           |
+xmvlog: *W,INTOVF (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,60|11): bit overflow during conversion from text [2.5(IEEE)] (1 bits).
+        1'hC : hex = 1;
+           |
+xmvlog: *W,INTOVF (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,61|11): bit overflow during conversion from text [2.5(IEEE)] (1 bits).
+        1'hD : hex = 1;
+           |
+xmvlog: *W,INTOVF (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,62|11): bit overflow during conversion from text [2.5(IEEE)] (1 bits).
+        1'hE : hex = 1;
+           |
+xmvlog: *W,INTOVF (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,63|11): bit overflow during conversion from text [2.5(IEEE)] (1 bits).
+        1'hF : hex = 1;
+           |
+xmvlog: *W,INTOVF (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,64|11): bit overflow during conversion from text [2.5(IEEE)] (1 bits).
+        initiate();
+                 |
+xmvlog: *W,TMTPAR (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,172|17): A task enable with no arguments must not include an empty set of parentheses [10.2.2 (IEEE Std 1364-2005)].  The compiler has ignored the parentheses.  Use 'xmhelp xmvlog TMTPAR'  for further information.
+        checkRAM();
+                 |
+xmvlog: *W,TMTPAR (/home/xchen/projects/cpu/361/submission/fp/syncram_fix.v,177|17): A task enable with no arguments must not include an empty set of parentheses [10.2.2 (IEEE Std 1364-2005)].  The compiler has ignored the parentheses.  Use 'xmhelp xmvlog TMTPAR'  for further information.
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+syncram_fix #(.mem_file(data_file_name)) data_cache(
+                                                  |
+xmelab: *W,CUVWSI (../fp/stage4_mem.v,29|50): 1 input port was not connected:
+xmelab: (../fp/syncram_fix.v,1): clk
+
+	Top level design units:
+		pp_top_tb
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+.pc_plus4_plusimm16(pc_plus4_plusimm16_ex_if),
+                                           |
+xmelab: *W,CUVMPW (../fp/pp_top.v,73|43): port sizes differ in port connection (30/32).
+.pc_plus4(pc_plus4_if_id),
+                       |
+xmelab: *W,CUVMPW (../fp/pp_top.v,78|23): port sizes differ in port connection (30/32).
+.pc_plus4_in(pc_plus4_if_id),
+                          |
+xmelab: *W,CUVMPW (../fp/pp_top.v,87|26): port sizes differ in port connection (30/32).
+.reg_wr_addr(reg_wr_addr_mem_id),
+                              |
+xmelab: *W,CUVMPW (../fp/pp_top.v,89|30): port sizes differ in port connection (32/5).
+.pc_plus4_out(pc_plus4_id_ex),
+                           |
+xmelab: *W,CUVMPW (../fp/pp_top.v,93|27): port sizes differ in port connection (30/32).
+.D(pc_plus4_in),
+             |
+xmelab: *W,CUVMPW (../fp/stage2_id.v,72|13): port sizes differ in port connection (32/2).
+.Q(pc_plus4_out),
+              |
+xmelab: *W,CUVMPW (../fp/stage2_id.v,73|14): port sizes differ in port connection (32/2).
+.D(regA_rd_data_id),
+                 |
+xmelab: *W,CUVMPW (../fp/stage2_id.v,80|17): port sizes differ in port connection (32/2).
+.Q(regA_rd_data),
+              |
+xmelab: *W,CUVMPW (../fp/stage2_id.v,81|14): port sizes differ in port connection (32/2).
+.D(imm_exted_id),
+              |
+xmelab: *W,CUVMPW (../fp/stage2_id.v,88|14): port sizes differ in port connection (32/2).
+.Q(imm_exted),
+           |
+xmelab: *W,CUVMPW (../fp/stage2_id.v,89|11): port sizes differ in port connection (32/2).
+.D(regS_addr_id),
+              |
+xmelab: *W,CUVMPW (../fp/stage2_id.v,96|14): port sizes differ in port connection (5/2).
+.Q(regS_addr),
+           |
+xmelab: *W,CUVMPW (../fp/stage2_id.v,97|11): port sizes differ in port connection (5/2).
+.D(regT_addr_id),
+              |
+xmelab: *W,CUVMPW (../fp/stage2_id.v,104|14): port sizes differ in port connection (5/2).
+.Q(regT_addr),
+           |
+xmelab: *W,CUVMPW (../fp/stage2_id.v,105|11): port sizes differ in port connection (5/2).
+.D(regD_addr_id),
+              |
+xmelab: *W,CUVMPW (../fp/stage2_id.v,112|14): port sizes differ in port connection (5/2).
+.Q(regD_addr),
+           |
+xmelab: *W,CUVMPW (../fp/stage2_id.v,113|11): port sizes differ in port connection (5/2).
+.pc_plus4(next_pc_id_ex),
+                      |
+xmelab: *W,CUVMPW (../fp/pp_top.v,108|22): port sizes differ in port connection (1/32).
+.pc_plus4_plusimm16(pc_plus4_plusimm16_ex_if),
+                                           |
+xmelab: *W,CUVMPW (../fp/pp_top.v,127|43): port sizes differ in port connection (30/32).
+.D(alu_zero_ex),
+             |
+xmelab: *W,CUVMPW (../fp/stage3_ex.v,144|13): port sizes differ in port connection (1/32).
+.Q(alu_zero),
+          |
+xmelab: *W,CUVMPW (../fp/stage3_ex.v,145|10): port sizes differ in port connection (1/32).
+.D(alu_not_zero_ex),
+                 |
+xmelab: *W,CUVMPW (../fp/stage3_ex.v,151|17): port sizes differ in port connection (1/32).
+.Q(alu_not_zero),
+              |
+xmelab: *W,CUVMPW (../fp/stage3_ex.v,152|14): port sizes differ in port connection (1/32).
+.D(alu_greater_ex),
+                |
+xmelab: *W,CUVMPW (../fp/stage3_ex.v,158|16): port sizes differ in port connection (1/32).
+.Q(alu_greater),
+             |
+xmelab: *W,CUVMPW (../fp/stage3_ex.v,159|13): port sizes differ in port connection (1/32).
+.reg_wr_addr_in(reg_wr_addr_ex_mem),
+                                 |
+xmelab: *W,CUVMPW (../fp/pp_top.v,137|33): port sizes differ in port connection (5/32).
+.D(reg_wr_addr_in),
+                |
+xmelab: *W,CUVMPW (../fp/stage4_mem.v,38|16): port sizes differ in port connection (32/5).
+.Q(reg_wr_addr_out),
+                 |
+xmelab: *W,CUVMPW (../fp/stage4_mem.v,39|17): port sizes differ in port connection (32/5).
+.reg_wr_addr_mem(reg_wr_addr_ex_mem),
+                                  |
+xmelab: *W,CUVMPW (../fp/pp_top.v,182|34): port sizes differ in port connection (5/1).
+.reg_wr_addr_wb(reg_wr_addr_mem_id),
+                                 |
+xmelab: *W,CUVMPW (../fp/pp_top.v,183|33): port sizes differ in port connection (32/1).
+.reg_wr_en_mem(reg_wr_en_ctrl_mem),
+                                |
+xmelab: *W,CUVMPW (../fp/pp_top.v,184|32): port sizes differ in port connection (1/5).
+.reg_wr_en_wb(reg_wr_en_ctrl_id),
+                              |
+xmelab: *W,CUVMPW (../fp/pp_top.v,185|30): port sizes differ in port connection (1/5).
+.sel(forward_en),
+              |
+xmelab: *W,CUVMPW (../fp/forwarding.v,312|14): port sizes differ in port connection (32/1).
+.sel(forward_en),
+              |
+xmelab: *W,CUVMPW (../fp/forwarding.v,319|14): port sizes differ in port connection (32/1).
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.stage3_ex:v <0x05a36147>
+			streams:   2, words:   358
+	Building instance specific data structures.
+.pc_plus4(next_pc_id_ex),
+                      |
+xmelab: *W,CSINFI (../fp/pp_top.v,108|22): implicit wire has no fanin (pp_top_tb.pp_top.next_pc_id_ex).
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:               1943      43
+		Registers:              147      36
+		Scalar wires:          1683       -
+		Expanded wires:         585      36
+		Vectored wires:          67       -
+		Always blocks:           96       7
+		Initial blocks:          22      15
+		Parallel blocks:          1       1
+		Cont. assignments:       45      52
+		Pseudo assignments:      13      13
+		Simulation timescale:   1ps
+	Writing initial simulation snapshot: worklib.pp_top_tb:v
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> 
+xcelium> source /tools/cadence/2017/XCELIUM1809/tools/xcelium/files/xmsimrc
+xcelium> 
+-------------------------------------
+Relinquished control to SimVision...
+# Restoring simulation environment...
+xcelium> input -quiet .reinvoke.sim
+xcelium> file delete .reinvoke.sim
+xcelium> reset
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+Loaded snapshot worklib.pp_top_tb:v
+xcelium> run
+Now initializing sram
+Addr is written: 00400020
+Data is written: 00002820
+Addr is written: 00400024
+Data is written: 20071000
+Addr is written: 00400028
+Data is written: 00e73c00
+Addr is written: 0040002c
+Data is written: 00e03020
+Addr is written: 00400030
+Data is written: 20c60028
+Addr is written: 00400034
+Data is written: 8ce40000
+Addr is written: 00400038
+Data is written: 00a42821
+Addr is written: 0040003c
+Data is written: 20e70004
+Addr is written: 00400040
+Data is written: 14e6fffc
+Addr is written: 00400044
+Data is written: ace50000
+Addr is written: 10000000
+Data is written: 0000000f
+Addr is written: 10000004
+Data is written: 000000f0
+Addr is written: 10000008
+Data is written: 00000f00
+Addr is written: 1000000c
+Data is written: 0000f000
+Addr is written: 10000010
+Data is written: 000f0000
+Addr is written: 10000014
+Data is written: 00f00000
+Addr is written: 10000018
+Data is written: 0f000000
+Addr is written: 1000001c
+Data is written: 10000000
+Addr is written: 10000020
+Data is written: 20000000
+Addr is written: 10000024
+Data is written: c0000000
+Addr is written: 10000028
+Data is written: ffffffff
+Addr is checking: 00400020
+Data is checking: 00002820
+Addr is checking: 00400024
+Data is checking: 20071000
+Addr is checking: 00400028
+Data is checking: 00e73c00
+Addr is checking: 0040002c
+Data is checking: 00e03020
+Addr is checking: 00400030
+Data is checking: 20c60028
+Addr is checking: 00400034
+Data is checking: 8ce40000
+Addr is checking: 00400038
+Data is checking: 00a42821
+Addr is checking: 0040003c
+Data is checking: 20e70004
+Addr is checking: 00400040
+Data is checking: 14e6fffc
+Addr is checking: 00400044
+Data is checking: ace50000
+Addr is checking: 10000000
+Data is checking: 0000000f
+Addr is checking: 10000004
+Data is checking: 000000f0
+Addr is checking: 10000008
+Data is checking: 00000f00
+Addr is checking: 1000000c
+Data is checking: 0000f000
+Addr is checking: 10000010
+Data is checking: 000f0000
+Addr is checking: 10000014
+Data is checking: 00f00000
+Addr is checking: 10000018
+Data is checking: 0f000000
+Addr is checking: 1000001c
+Data is checking: 10000000
+Addr is checking: 10000020
+Data is checking: 20000000
+Addr is checking: 10000024
+Data is checking: c0000000
+Addr is checking: 10000028
+Data is checking: ffffffff
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Addr is checking: xxxxxxxx
+Data is checking: xxxxxxxx
+Writing to dout:          x
+READ Addr FOUND!: 00400020
+Writing to dout:      10272
+READ Addr FOUND!: 00400020
+Writing to dout:      10272
+READ Addr FOUND!: 00400020
+Writing to dout:      10272
+READ Addr FOUND!: 00400024
+Writing to dout:  537333760
+READ Addr FOUND!: 00400028
+Writing to dout:   15154176
+READ Addr FOUND!: 0040002c
+Writing to dout:   14692384
+READ Addr FOUND!: 00400030
+Writing to dout:  549847080
+READ Addr FOUND!: 00400034
+Writing to dout: 2363752448
+READ Addr FOUND!: 00400038
+Writing to dout:   10758177
+READ Addr FOUND!: 0040003c
+Writing to dout:  552009732
+READ Addr FOUND!: 00400040
+Writing to dout:  350683132
+READ Addr FOUND!: 00400044
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Writing to dout: 2900688896
+Simulation complete via $finish(1) at time 525 NS + 0
+./pp_top_tb.sv:34 $finish;
+xcelium> 

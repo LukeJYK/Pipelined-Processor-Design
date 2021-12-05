@@ -1,0 +1,7 @@
+define XMSIMRC	( /tools/cadence/2017/XCELIUM1809/tools/xcelium/files/xmsimrc, ~/.xmsimrc )
+include ./hdlrun.var
+define SNAPSHOT worklib.mux_32:v
+DEFINE RUNMODEDEFAULT 1
+DEFINE LIB_MAP ( + => worklib )
+define ELAB_SNAPSHOT
+define SNAPSHOT worklib.pp_top_tb:v

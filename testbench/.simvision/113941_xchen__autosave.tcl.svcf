@@ -1,0 +1,265 @@
+
+#
+# Preferences
+#
+preferences set plugin-enable-svdatabrowser-new 1
+preferences set toolbar-Standard-Console {
+  usual
+  position -pos 1
+}
+preferences set toolbar-Search-Console {
+  usual
+  position -pos 2
+}
+preferences set toolbar-Standard-WaveWindow {
+  usual
+  position -pos 1
+}
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+preferences set plugin-enable-waveformfrequencyplot 0
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Design Browser windows
+#
+if {[catch {window new WatchList -name "Design Browser 1" -geometry 730x500+658+86}] != ""} {
+    window geometry "Design Browser 1" 730x500+658+86
+}
+window target "Design Browser 1" on
+browser using {Design Browser 1}
+browser set -scope  simulator::pp_top_tb.pp_top.stage1_if 
+browser set \
+    -signalsort name
+browser yview see  simulator::pp_top_tb.pp_top.stage1_if 
+browser timecontrol set -lock 0
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1340x775+101+145}] != ""} {
+    window geometry "Waveform 1" 1340x775+101+145
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar visibility partial
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 299 \
+    -units ps \
+    -valuewidth 218
+waveform baseline set -time 0
+
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.alu_ctrl_ctrl_ex[2:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.alu_greater_ex_ctrl
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.alu_not_zero_ex_ctrl
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.alu_op_ctrl_ex[2:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.alu_result_ex_mem[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.alu_result_mem_wb[31:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.alu_src_ctrl_ex
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.alu_zero_ex_ctrl
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.clear_ctrl
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.data_file_name
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.ext_ctrl
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.forwardA[1:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.forwardB[1:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.hold_if
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.hold_pc
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.imm_exted_id_ex[31:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.instr_file_name
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.instr_if_id[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.mem_rd_data_mem_wb[31:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.mem_rd_en_ctrl_mem
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.mem_rd_en_ex
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.mem_to_reg_ctrl_wb
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.mem_wr_en_ctrl_mem
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.next_pc_id_ex
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.pc_plus4_id_ex[29:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.pc_plus4_if_id[29:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.pc_plus4_plusimm16_ex_if[29:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.pc_src
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.regA_rd_data_id_ex[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.regB_rd_data_ex_mem[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.regB_rd_data_id_ex[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.regD_addr_id_ex[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.regS_addr_id[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.regS_addr_id_ex[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.regT_addr_id[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.regT_addr_id_ex[4:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.reg_dst_ctrl_ex
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.reg_wr_addr_ex_mem[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.reg_wr_addr_mem_id[31:0]}
+	} ]
+waveform hierarchy collapse $id
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.reg_wr_data_wb_id[31:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.reg_wr_en_ctrl_id
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.reg_wr_en_ctrl_mem
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.reg_wr_en_if_id
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.clk
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.stage1_if.clk
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.stage1_if.current_pc[31:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.stage1_if.hold_if
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.stage1_if.hold_pc
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.stage1_if.if_flush
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.stage1_if.instr[31:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.stage1_if.instr_file_name
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.if_flush
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.stage1_if.instr_if[31:0]}
+	} ]
+waveform format $id -radix %x
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.stage1_if.instr_if_temp[31:0]}
+	} ]
+waveform hierarchy collapse $id
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.stage1_if.next_pc[31:0]}
+	} ]
+waveform format $id -radix %b
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.stage1_if.pc_plus4[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.stage1_if.pc_plus4_if[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::pp_top_tb.pp_top.stage1_if.pc_plus4_plusimm16[31:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.stage1_if.pc_src
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.stage1_if.rstb
+	} ]
+set id [waveform add -signals  {
+	simulator::pp_top_tb.pp_top.rstb
+	} ]
+
+waveform xview limits 0 65103ps
+
+#
+# Waveform Window Links
+#
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 730x250+284+507
+
+#
+# Layout selection
+#
