@@ -168,4 +168,5 @@ register #(.n(32)) register_regB_out(
 .rstb(rstb),
 .hold(1'b0)
 );
+
 endmodule

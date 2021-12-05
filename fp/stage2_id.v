@@ -67,8 +67,8 @@ extender extender(
 .ext_ctrl(ext_ctrl),
 .out(imm_exted_id)
 );
-
-register register_nxtpc(
+ 
+register #(.n(DATA_WIDTH)) register_nxtpc(
 .D(pc_plus4_in),
 .Q(pc_plus4_out),
 .clk(clk),
@@ -76,7 +76,7 @@ register register_nxtpc(
 .hold(1'b0)
 );
 
-register register_rddataA(
+register #(.n(DATA_WIDTH)) register_rddataA(
 .D(regA_rd_data_id),
 .Q(regA_rd_data),
 .clk(clk),
@@ -84,7 +84,15 @@ register register_rddataA(
 .hold(1'b0)
 );
 
-register register_immexted(
+register #(.n(DATA_WIDTH)) register_rddataB(
+.D(regB_rd_data_id),
+.Q(regB_rd_data),
+.clk(clk),
+.rstb(rstb),
+.hold(1'b0)
+);
+
+register #(.n(DATA_WIDTH)) register_immexted(
 .D(imm_exted_id),
 .Q(imm_exted),
 .clk(clk),
@@ -92,7 +100,7 @@ register register_immexted(
 .hold(1'b0)
 );
 
-register register_regS(
+register #(.n(ADDR_WIDTH)) register_regS(
 .D(regS_addr_id),
 .Q(regS_addr),
 .clk(clk),
@@ -100,7 +108,7 @@ register register_regS(
 .hold(1'b0)
 );
 
-register register_regT(
+register #(.n(ADDR_WIDTH)) register_regT(
 .D(regT_addr_id),
 .Q(regT_addr),
 .clk(clk),
@@ -108,7 +116,7 @@ register register_regT(
 .hold(1'b0)
 );
 
-register register_regD(
+register #(.n(ADDR_WIDTH)) register_regD(
 .D(regD_addr_id),
 .Q(regD_addr),
 .clk(clk),

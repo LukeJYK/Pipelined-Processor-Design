@@ -47,10 +47,12 @@ always @ (posedge clk or negedge rstb) begin
     mem[30] <= 32'h00000000;
     mem[31] <= 32'h00000000;
   end
-  else if (wr_en) begin
-      mem[wr_addr] <= wr_data;
-  end 
 end 
 
+always @(negedge clk) begin
+	if (wr_en) begin
+		mem[wr_addr] <= wr_data;
+	end
+end
 
 endmodule

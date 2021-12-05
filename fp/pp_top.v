@@ -18,7 +18,7 @@ wire [DATA_WIDTH-3:0] pc_plus4_plusimm16_ex_if;
 wire [DATA_WIDTH-3:0] pc_plus4_if_id;
 wire [DATA_WIDTH-1:0] instr_if_id;
 
-wire reg_wr_en_if_id;
+
 wire [DATA_WIDTH-1:0] imm_exted_id_ex;
 wire [ADDR_WIDTH-1:0] regS_addr_id_ex;
 wire [ADDR_WIDTH-1:0] regT_addr_id_ex;
@@ -42,11 +42,10 @@ wire alu_greater_ex_ctrl;
 
 wire [DATA_WIDTH-1:0] mem_rd_data_mem_wb;
 wire [DATA_WIDTH-1:0] alu_result_mem_wb;
-wire [DATA_WIDTH-1:0] reg_wr_addr_mem_id;
+wire [ADDR_WIDTH-1:0] reg_wr_addr_mem_id;
 
 wire [DATA_WIDTH-1:0] reg_wr_data_wb_id;
 
-wire [2:0] alu_op_ctrl_ex;
 wire pc_src;
 wire mem_wr_en_ctrl_mem;
 wire mem_rd_en_ctrl_mem;
@@ -56,6 +55,7 @@ wire ext_ctrl;
 
 wire [1:0] forwardA;
 wire [1:0] forwardB;
+wire reg_wr_en_ctrl_mem;
 
 wire clear_ctrl;
 wire hold_if;
@@ -63,7 +63,7 @@ wire hold_pc;
 wire if_flush;
 wire [ADDR_WIDTH-1:0] regS_addr_id;
 wire [ADDR_WIDTH-1:0] regT_addr_id;
-
+wire mem_rd_en_ex;
 //submodule
 stage1_if #(.instr_file_name(instr_file_name))stage1_if(
 //input
@@ -105,7 +105,7 @@ stage3_ex stage3_ex(
 //input
 .clk(clk),
 .rstb(rstb),
-.pc_plus4(next_pc_id_ex),
+.pc_plus4(pc_plus4_id_ex),
 .regA_rd_data(regA_rd_data_id_ex),
 .regB_rd_data_in(regB_rd_data_id_ex),
 .imm_exted(imm_exted_id_ex),
@@ -116,7 +116,7 @@ stage3_ex stage3_ex(
 .alu_src(alu_src_ctrl_ex),
 .forwardA(forwardA),
 .forwardB(forwardB),
-.reg_wr_data_wb(reg_wr_data_wb_id),
+.reg_wr_data_wb(reg_wr_data_wb_id),//for forwarding
 
 //output
 .alu_zero(alu_zero_ex_ctrl),

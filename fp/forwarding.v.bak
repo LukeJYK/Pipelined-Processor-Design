@@ -11,13 +11,13 @@ reg_wr_en_wb,
 forwardA, 
 forwardB
 );
-parameter forward_en = 1;
+parameter forward_en = 0;
 input [4:0] regS_addr;
 input [4:0] regT_addr;
-input [4:0] reg_wr_addr_mem;
-input [4:0] reg_wr_addr_wb;
-input reg_wr_en_mem; 
-input reg_wr_en_wb;
+input reg_wr_addr_mem;
+input reg_wr_addr_wb;
+input [4:0] reg_wr_en_mem; 
+input [4:0] reg_wr_en_wb;
 output [1:0] forwardA;
 output [1:0] forwardB;
 
@@ -27,8 +27,8 @@ wire [4:0] t3;
 wire [4:0] t4;
 wire [4:0] t5;
 wire [4:0] t6;
-wire not_zero_reg_wr_addr_mem;
-wire not_zero_reg_wr_addr_wb; 
+wire not_zero_reg_wr_en_mem;
+wire not_zero_reg_wr_en_wb; 
 wire exmem_rd_eq_idex_rs;
 wire exmem_rd_eq_idex_rt;
 wire memwb_rd_eq_idex_rt;
@@ -60,11 +60,10 @@ wire [1:0] forwardA_temp;
 wire [1:0] forwardB_temp;
 wire [1:0] r1;
 wire [1:0] r2;
-
-//reg_wr_addr_mem != 0
+//reg_wr_en_mem != 0
 xor_gate_nbit #(.n(5)) xor0
 (
-.x(reg_wr_addr_mem),
+.x(reg_wr_en_mem),
 .y(5'b00000),
 .z(t1)
 );
@@ -75,13 +74,13 @@ or_6unit or_0(
 .or3(t1[3]),
 .or4(t1[4]),
 .or5(1'b0),
-.or_result(not_zero_reg_wr_addr_mem)
+.or_result(not_zero_reg_wr_en_mem)
 );  
   
-//reg_wr_addr_wb != 0
+//reg_wr_en_wb != 0
 xor_gate_nbit #(.n(5)) xor1
 (
-.x(reg_wr_addr_wb),
+.x(reg_wr_en_wb),
 .y(5'b00000),
 .z(t2)
 );
@@ -92,13 +91,13 @@ or_6unit or_1(
 .or3(t2[3]),
 .or4(t2[4]),
 .or5(1'b0),
-.or_result(not_zero_reg_wr_addr_wb)
+.or_result(not_zero_reg_wr_en_wb)
 ); 
 
-//reg_wr_addr_mem == regS_addr
+//reg_wr_en_mem == regS_addr
 xor_gate_nbit #(.n(5)) xor2
 (
-.x(reg_wr_addr_mem),
+.x(reg_wr_en_mem),
 .y(regS_addr),
 .z(t3)
 );
@@ -117,10 +116,10 @@ not_gate not1(
 );
 
 
-//reg_wr_addr_mem == regT_addr
+//reg_wr_en_mem == regT_addr
 xor_gate_nbit #(.n(5)) xor3
 (
-.x(reg_wr_addr_mem),
+.x(reg_wr_en_mem),
 .y(regT_addr),
 .z(t4)
 );
@@ -138,10 +137,10 @@ not_gate not2(
 .z(exmem_rd_eq_idex_rt)
 );
 
-//reg_wr_addr_wb == regS_addr
+//reg_wr_en_wb == regS_addr
 xor_gate_nbit #(.n(5)) xor4
 (
-.x(reg_wr_addr_wb),
+.x(reg_wr_en_wb),
 .y(regS_addr),
 .z(t5)
 );
@@ -159,10 +158,10 @@ not_gate not3(
 .z(memwb_rd_eq_idex_rs)
 );
 
-//reg_wr_addr_wb == regT_addr
+//reg_wr_en_wb == regT_addr
 xor_gate_nbit #(.n(5)) xor5
 (
-.x(reg_wr_addr_wb),
+.x(reg_wr_en_wb),
 .y(regT_addr),
 .z(t6)
 );
@@ -185,8 +184,8 @@ not_gate not4(
 //Ex hazard
 and_gate and1
 (
-.x(reg_wr_en_mem),
-.y(not_zero_reg_wr_addr_mem),
+.x(reg_wr_addr_mem),
+.y(not_zero_reg_wr_en_mem),
 .z(and_result_1)
 );
 and_gate and2
@@ -197,8 +196,8 @@ and_gate and2
 );
 and_gate and3
 (
-.x(reg_wr_en_mem),
-.y(not_zero_reg_wr_addr_mem),
+.x(reg_wr_addr_mem),
+.y(not_zero_reg_wr_en_mem),
 .z(and_result_2)
 );
 and_gate and4
@@ -216,12 +215,12 @@ not_gate not_01_1(
 );
 and_gate and_01_1(
 .x(temp1),
-.y(not_zero_reg_wr_addr_mem),
+.y(not_zero_reg_wr_en_mem),
 .z(temp2)
 );
 and_gate and_01_2(
 .x(temp2),
-.y(reg_wr_en_mem),
+.y(reg_wr_addr_mem),
 .z(temp3)
 );
 not_gate not_01_2(
@@ -229,8 +228,8 @@ not_gate not_01_2(
 .z(temp4)//temp4 is blue part
 );
 and_gate and_r1(
-.x(reg_wr_en_wb),
-.y(not_zero_reg_wr_addr_wb),
+.x(reg_wr_addr_wb),
+.y(not_zero_reg_wr_en_wb),
 .z(temp11)
 );
 and_gate and_r2(
@@ -250,12 +249,12 @@ not_gate not_01_3(
 );
 and_gate and_01_3(
 .x(temp5),
-.y(not_zero_reg_wr_addr_mem),
+.y(not_zero_reg_wr_en_mem),
 .z(temp6)
 );
 and_gate and_01_4(
 .x(temp6),
-.y(reg_wr_en_mem),
+.y(reg_wr_addr_mem),
 .z(temp7)
 );
 not_gate not_01_4(
@@ -263,8 +262,8 @@ not_gate not_01_4(
 .z(temp8)//temp8 is blue part
 );
 and_gate and_r4(
-.x(reg_wr_en_wb),
-.y(not_zero_reg_wr_addr_wb),
+.x(reg_wr_addr_wb),
+.y(not_zero_reg_wr_en_wb),
 .z(temp21)
 );
 and_gate and_r5(
@@ -281,30 +280,30 @@ and_gate and_r6(
 
 mux_nbit #(.n(2)) mux1
 (
-.sel(ex_mem_to_regS_addr01),
+.sel(ex_mem_to_regS_addr10),
 .src0(2'b00),
-.src1(2'b01),
+.src1(2'b10),
 .z(r1)
 );
 mux_nbit #(.n(2)) mux2
 (
-.sel(ex_mem_to_regS_addr10),
+.sel(ex_mem_to_regS_addr01),
 .src0(r1),
-.src1(2'b10),
+.src1(2'b01),
 .z(forwardA_temp)
 );
 mux_nbit #(.n(2)) mux3
 (
-.sel(ex_mem_to_regT_addr01),
+.sel(ex_mem_to_regT_addr10),
 .src0(2'b00),
-.src1(2'b01),
+.src1(2'b10),
 .z(r2)
 );
 mux_nbit #(.n(2)) mux4
 (
-.sel(ex_mem_to_regT_addr10),
+.sel(ex_mem_to_regT_addr01),
 .src0(r2),
-.src1(2'b10),
+.src1(2'b01),
 .z(forwardB_temp)
 );
 

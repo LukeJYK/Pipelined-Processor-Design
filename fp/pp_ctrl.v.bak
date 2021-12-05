@@ -34,7 +34,7 @@ output alu_src;
 output reg_dst;
 output mem_wr_en;
 output wire mem_rd_en;
-output wire branch;
+output branch;
 output mem_to_reg;
 output wire reg_wr_en_mem;
 output wire reg_wr_en_wb;
@@ -96,10 +96,6 @@ wire mem_to_reg_mem;
 //wb
 wire mem_to_reg_wb;
 
-wire clear_ctrl_id;
-wire instr_all_zero;
-wire temp_clear;
-
 assign ext_op = ext_op_id;
 assign alu_src = alu_src_ex;
 assign reg_dst = reg_dst_ex;
@@ -122,97 +118,81 @@ main_control main_control(
 .MemtoReg(mem_to_reg_temp),
 .ExtOp(ext_op_temp)
 );
-//all zero
-or32_to_1 judge_all_zero(
-.x(instr),
-.z(instr_all_zero)
-);
-or_gate judge_clear_1(
-.x(instr_all_zero),
-.y(clear_ctrl),
-.z(temp_clear)
-);
-or_gate judge_clear_2(
-.x(temp_clear),
-.y(branch),
-.z(clear_ctrl_id)
-);
-
 
 // clear mux
 mux_nbit #(.n(3)) clear_alu_op
 (
-.sel(clear_ctrl_id),
+.sel(clear_ctrl),
 .src0(alu_op_temp),
 .src1(3'b000),
 .z(alu_op_id)
 );
 mux_nbit #(.n(1)) clear_reg_dst
 (
-.sel(clear_ctrl_id),
+.sel(clear_ctrl),
 .src0(reg_dst_temp),
 .src1(1'b0),
 .z(reg_dst_id)
 );
 mux_nbit #(.n(1)) clear_reg_wr_en
 (
-.sel(clear_ctrl_id),
+.sel(clear_ctrl),
 .src0(reg_wr_en_temp),
 .src1(1'b0),
 .z(reg_wr_en_id)
 );
 mux_nbit #(.n(1)) clear_bgtz
 (
-.sel(clear_ctrl_id),
+.sel(clear_ctrl),
 .src0(bgtz_temp),
 .src1(1'b0),
 .z(bgtz_id)
 );
 mux_nbit #(.n(1)) clear_bne
 (
-.sel(clear_ctrl_id),
+.sel(clear_ctrl),
 .src0(bne_temp),
 .src1(1'b0),
 .z(bne_id)
 );
 mux_nbit #(.n(1)) clear_beq
 (
-.sel(clear_ctrl_id),
+.sel(clear_ctrl),
 .src0(beq_temp),
 .src1(1'b0),
 .z(beq_id)
 );
 mux_nbit #(.n(1)) clear_alu_src
 (
-.sel(clear_ctrl_id),
+.sel(clear_ctrl),
 .src0(alu_src_temp),
 .src1(1'b0),
 .z(alu_src_id)
 );
 mux_nbit #(.n(1)) clear_mem_wr_en
 (
-.sel(clear_ctrl_id),
+.sel(clear_ctrl),
 .src0(mem_wr_en_temp),
 .src1(1'b0),
 .z(mem_wr_en_id)
 );
 mux_nbit #(.n(1)) clear_mem_rd_en
 (
-.sel(clear_ctrl_id),
+.sel(clear_ctrl),
 .src0(mem_rd_en_temp),
 .src1(1'b0),
 .z(mem_rd_en_id)
 );
 mux_nbit #(.n(1)) clear_mem_to_reg
 (
-.sel(clear_ctrl_id),
+.sel(clear_ctrl),
 .src0(mem_to_reg_temp),
 .src1(1'b0),
 .z(mem_to_reg_id)
 );
 mux_nbit #(.n(1)) clear_ext_op
 (
-.sel(clear_ctrl_id),
+.sel(clear_ctrl),
 .src0(ext_op_temp),
 .src1(1'b0),
 .z(ext_op_id)

@@ -45,8 +45,7 @@ adder_32bit adder_32bit(
 .overflow()
 );
 
-syncram_fix #(.mem_file(instr_file_name)) instr_cache(
-.clk(clk),
+sram_fix #(.mem_file(instr_file_name)) instr_cache(
 .cs(1'b1),
 .oe(1'b1),
 .we(1'b0),
