@@ -14,6 +14,7 @@ alu_src,
 forwardA,
 forwardB,
 reg_wr_data_wb,
+if_flush,
 //output
 alu_zero,
 alu_not_zero,
@@ -37,6 +38,7 @@ input alu_src;
 input [1:0] forwardA;
 input [1:0] forwardB;
 input [31:0] reg_wr_data_wb;
+input if_flush;
 
 output alu_zero;
 output alu_not_zero;
@@ -61,8 +63,16 @@ wire alu_zero_ex;
 wire alu_not_zero_ex;
 wire alu_greater_ex;
 
-assign shifter[31:0] = 32'b00000000000000000000000000000010;
+wire [4:0] regT_addr_temp;
+wire [4:0] regD_addr_temp;
+
+
+assign shifter[31:0] = 32'h00000002;
 assign alu_input_A = alu_forwardA;
+
+assign regT_addr_temp = if_flush?32'h00000000:regT_addr;
+assign regD_addr_temp = if_flush?32'h00000000:regD_addr;
+
 //shift left 2
 sll_32bit sll_map(.x(imm_exted), .shift(shifter), .z(shift_result));
 //add new pc
@@ -77,8 +87,8 @@ register #(.n(32)) register_pc(
 //rt-rd
 mux_nbit #(.n(5)) mux_rt_rd(
 .sel(reg_dst),
-.src0(regT_addr),
-.src1(regD_addr),
+.src0(regT_addr_temp),
+.src1(regD_addr_temp),
 .z(reg_wr_addr_ex)
 );
 register #(.n(5)) register_reg_wr_addr(

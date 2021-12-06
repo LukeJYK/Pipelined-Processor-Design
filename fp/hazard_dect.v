@@ -28,7 +28,7 @@ output if_flush;
 wire stall_lw_rd;
 wire stall_branch;
 
-assign stall_lw_rd = (mem_rd_en_ex&&((regS_addr_id==regT_addr_ex)||(regS_addr_id==regT_addr_ex)));
+assign stall_lw_rd = (mem_rd_en_ex&&((regS_addr_id==regT_addr_ex)||(regT_addr_id==regT_addr_ex)))?1'b1:1'b0;
 assign stall_branch = branch;
 
 assign clear_ctrl = (stall_lw_rd||stall_branch)?1'b1:1'b0;

@@ -58,6 +58,17 @@ wire mem_wr_en_temp;
 wire mem_rd_en_temp;
 wire mem_to_reg_temp;
 wire ext_op_temp;
+//temp2
+wire [2:0] alu_op_temp2;
+wire reg_dst_temp2;
+wire reg_wr_en_temp2;
+wire bgtz_temp2;
+wire bne_temp2;
+wire beq_temp2;
+wire alu_src_temp2;
+wire mem_wr_en_temp2;
+wire mem_rd_en_temp2;
+wire mem_to_reg_temp2;
 
 //id
 wire [2:0] alu_op_id;
@@ -228,74 +239,147 @@ register #(.n(32)) register1_0(
 );
 register #(.n(3)) register1_1(
 .D(alu_op_id),
-.Q(alu_op_ex),
+.Q(alu_op_temp2),
 .clk(clk),
 .rstb(rstb),
 .hold(1'b0)
 );
 register #(.n(1)) register1_3(
 .D(alu_src_id),
-.Q(alu_src_ex),
+.Q(alu_src_temp2),
 .clk(clk),
 .rstb(rstb),
 .hold(1'b0)
 );
 register #(.n(1)) register1_4(
 .D(reg_dst_id),
-.Q(reg_dst_ex),
+.Q(reg_dst_temp2),
 .clk(clk),
 .rstb(rstb),
 .hold(1'b0)
 );
 register #(.n(1)) register1_5(
 .D(mem_wr_en_id),
-.Q(mem_wr_en_ex),
+.Q(mem_wr_en_temp2),
 .clk(clk),
 .rstb(rstb),
 .hold(1'b0)
 );
 register #(.n(1)) register1_6(
 .D(mem_rd_en_id),
-.Q(mem_rd_en_ex),
+.Q(mem_rd_en_temp2),
 .clk(clk),
 .rstb(rstb),
 .hold(1'b0)
 );
 register #(.n(1)) register1_7(
 .D(mem_to_reg_id),
-.Q(mem_to_reg_ex),
+.Q(mem_to_reg_temp2),
 .clk(clk),
 .rstb(rstb),
 .hold(1'b0)
 );
 register #(.n(1)) register1_8(
 .D(bgtz_id),
-.Q(bgtz_ex),
+.Q(bgtz_temp2),
 .clk(clk),
 .rstb(rstb),
 .hold(1'b0)
 );
 register #(.n(1)) register1_9(
 .D(bne_id),
-.Q(bne_ex),
+.Q(bne_temp2),
 .clk(clk),
 .rstb(rstb),
 .hold(1'b0)
 );
 register #(.n(1)) register1_10(
 .D(beq_id),
-.Q(beq_ex),
+.Q(beq_temp2),
 .clk(clk),
 .rstb(rstb),
 .hold(1'b0)
 );
 register #(.n(1)) register1_11(
 .D(reg_wr_en_id),
-.Q(reg_wr_en_ex),
+.Q(reg_wr_en_temp2),
 .clk(clk),
 .rstb(rstb),
 .hold(1'b0)
 );
+
+//clear
+mux_nbit #(.n(3)) clear_alu_op_ex
+(
+.sel(branch),
+.src0(alu_op_temp2),
+.src1(3'b000),
+.z(alu_op_ex)
+);
+mux_nbit #(.n(1)) clear_reg_dst_ex
+(
+.sel(branch),
+.src0(reg_dst_temp2),
+.src1(1'b0),
+.z(reg_dst_ex)
+);
+mux_nbit #(.n(1)) clear_reg_wr_en_ex
+(
+.sel(branch),
+.src0(reg_wr_en_temp2),
+.src1(1'b0),
+.z(reg_wr_en_ex)
+);
+mux_nbit #(.n(1)) clear_bgtz_ex
+(
+.sel(branch),
+.src0(bgtz_temp2),
+.src1(1'b0),
+.z(bgtz_ex)
+);
+mux_nbit #(.n(1)) clear_bne_ex
+(
+.sel(branch),
+.src0(bne_temp2),
+.src1(1'b0),
+.z(bne_ex)
+);
+mux_nbit #(.n(1)) clear_beq_ex
+(
+.sel(branch),
+.src0(beq_temp2),
+.src1(1'b0),
+.z(beq_ex)
+);
+mux_nbit #(.n(1)) clear_alu_src_ex
+(
+.sel(branch),
+.src0(alu_src_temp2),
+.src1(1'b0),
+.z(alu_src_ex)
+);
+mux_nbit #(.n(1)) clear_mem_wr_en_ex
+(
+.sel(branch),
+.src0(mem_wr_en_temp2),
+.src1(1'b0),
+.z(mem_wr_en_ex)
+);
+mux_nbit #(.n(1)) clear_mem_rd_en_ex
+(
+.sel(branch),
+.src0(mem_rd_en_temp2),
+.src1(1'b0),
+.z(mem_rd_en_ex)
+);
+mux_nbit #(.n(1)) clear_mem_to_reg_ex
+(
+.sel(branch),
+.src0(mem_to_reg_temp2),
+.src1(1'b0),
+.z(mem_to_reg_ex)
+);
+
 alu_control alu_control(
 .func(instr_ex[5:0]),
 .ALUop(alu_op_ex),

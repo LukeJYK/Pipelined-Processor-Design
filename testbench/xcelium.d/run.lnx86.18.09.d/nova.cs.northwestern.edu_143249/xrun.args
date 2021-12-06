@@ -1,0 +1,14 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-gui
+-notimingcheck
+-f
+moduleList.f
+-access
+r
+-xmelab_args
+"-delay_mode zero -maxdelays"
+pp_top_tb.sv
+-s

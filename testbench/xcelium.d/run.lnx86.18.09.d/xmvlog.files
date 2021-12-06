@@ -12,10 +12,12 @@
 /home/xchen/projects/cpu/361/submission/fp/main_control.v
 /home/xchen/projects/cpu/361/submission/fp/mux_3_to_1.v
 /home/xchen/projects/cpu/361/submission/fp/mux_nbit.v
+/home/xchen/projects/cpu/361/submission/fp/or32_to_1.v
 /home/xchen/projects/cpu/361/submission/fp/pp_ctrl.v
 /home/xchen/projects/cpu/361/submission/fp/pp_top.v
 /home/xchen/projects/cpu/361/submission/fp/register.v
 /home/xchen/projects/cpu/361/submission/fp/register_file.v
+/home/xchen/projects/cpu/361/submission/fp/sram_fix.v
 /home/xchen/projects/cpu/361/submission/fp/stage1_if.v
 /home/xchen/projects/cpu/361/submission/fp/stage2_id.v
 /home/xchen/projects/cpu/361/submission/fp/stage3_ex.v

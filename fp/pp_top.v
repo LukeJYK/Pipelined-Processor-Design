@@ -14,8 +14,8 @@ input clk,rstb;
 //output
 
 //wire, reg
-wire [DATA_WIDTH-3:0] pc_plus4_plusimm16_ex_if;
-wire [DATA_WIDTH-3:0] pc_plus4_if_id;
+wire [DATA_WIDTH-1:0] pc_plus4_plusimm16_ex_if;
+wire [DATA_WIDTH-1:0] pc_plus4_if_id;
 wire [DATA_WIDTH-1:0] instr_if_id;
 
 
@@ -25,7 +25,7 @@ wire [ADDR_WIDTH-1:0] regT_addr_id_ex;
 wire [ADDR_WIDTH-1:0] regD_addr_id_ex;
 wire [DATA_WIDTH-1:0] regA_rd_data_id_ex;
 wire [DATA_WIDTH-1:0] regB_rd_data_id_ex;
-wire [DATA_WIDTH-3:0] pc_plus4_id_ex;
+wire [DATA_WIDTH-1:0] pc_plus4_id_ex;
 
 wire [DATA_WIDTH-1:0] alu_result_ex_mem;
 wire [DATA_WIDTH-1:0] regB_rd_data_ex_mem;
@@ -89,6 +89,7 @@ stage2_id stage2_id(
 .reg_wr_addr(reg_wr_addr_mem_id),
 .reg_wr_data(reg_wr_data_wb_id),
 .ext_ctrl(ext_ctrl),
+.if_flush(if_flush),
 //output
 .pc_plus4_out(pc_plus4_id_ex),
 .regA_rd_data(regA_rd_data_id_ex),
@@ -117,6 +118,7 @@ stage3_ex stage3_ex(
 .forwardA(forwardA),
 .forwardB(forwardB),
 .reg_wr_data_wb(reg_wr_data_wb_id),//for forwarding
+.if_flush(if_flush),
 
 //output
 .alu_zero(alu_zero_ex_ctrl),

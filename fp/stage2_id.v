@@ -8,6 +8,7 @@ instr_in,
 reg_wr_addr,
 reg_wr_data,
 ext_ctrl,
+if_flush,
 //output
 pc_plus4_out,
 regA_rd_data,
@@ -28,6 +29,7 @@ input [DATA_WIDTH-1:0] instr_in;
 input [ADDR_WIDTH-1:0] reg_wr_addr;
 input [DATA_WIDTH-1:0] reg_wr_data;
 input ext_ctrl;
+input if_flush;
 
 output [DATA_WIDTH-1:0] pc_plus4_out;
 output [DATA_WIDTH-1:0] regA_rd_data;
@@ -43,10 +45,12 @@ wire [DATA_WIDTH-1:0] imm_exted_id;
 output wire [ADDR_WIDTH-1:0] regS_addr_id;
 output wire [ADDR_WIDTH-1:0] regT_addr_id;
 wire [ADDR_WIDTH-1:0] regD_addr_id;
+wire [DATA_WIDTH-1:0] instr_in_temp;
 
-assign regS_addr_id = instr_in[25:21];
-assign regT_addr_id = instr_in[20:16];
-assign regD_addr_id = instr_in[15:11];
+assign instr_in_temp = if_flush?32'h00000000:instr_in;
+assign regS_addr_id = instr_in_temp[25:21];
+assign regT_addr_id = instr_in_temp[20:16];
+assign regD_addr_id = instr_in_temp[15:11];
 
 
 
@@ -63,7 +67,7 @@ register_file RF(
 );
 
 extender extender(
-.in(instr_in[15:0]),
+.in(instr_in_temp[15:0]),
 .ext_ctrl(ext_ctrl),
 .out(imm_exted_id)
 );

@@ -18,12 +18,12 @@ input clk;
 input rstb;
 input [31:0] alu_result_in;
 input [31:0] regB_rd_data_in;
-input [5:0] reg_wr_addr_in;
+input [4:0] reg_wr_addr_in;
 input mem_wr_en;
 input mem_rd_en;
 output [31:0] mem_rd_data;
 output [31:0] alu_result_out;
-output [5:0] reg_wr_addr_out;
+output [4:0] reg_wr_addr_out;
 
 wire [31:0] mem_rd_data_mem;
 sram_fix #(.mem_file(data_file_name)) data_cache(

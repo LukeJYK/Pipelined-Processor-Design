@@ -19,9 +19,9 @@ input [5:0] opCode;
 output [2:0] aluop;
 output RegDst;
 output RegWr;
-output bgtz;
-output bne;
-output beq;
+output wire bgtz;
+output wire bne;
+output wire beq;
 output Jump;
 output ALUSrc;
 output MemWr;
@@ -167,11 +167,16 @@ and_6unit addi_and(
 
 
 //ExtOp
-or_gate or_gate1(
-.x(lw),
-.y(sw),
-.z(ExtOp)
-);
+or_6unit or_gate1(
+.or0(lw),
+.or1(sw),
+.or2(bgtz),
+.or3(bne),
+.or4(beq),
+.or5(1'b0),
+.or_result(ExtOp)
+);  
+
 //RegWrite
 or_gate or_gate2(
 .x(Rtype),

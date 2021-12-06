@@ -30,7 +30,7 @@ rstb = 1'b1;
 rstb = 1'b0;
 #(clk_period*2)
 rstb = 1'b1;
-#500
+#1000
 $finish;
 end
 
