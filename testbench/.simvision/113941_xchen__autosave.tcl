@@ -70,5 +70,8 @@ probe -create -database waves pp_top_tb.pp_top.stage3_ex.shift_result
 probe -create -database waves pp_top_tb.pp_top.stage3_ex.shifter pp_top_tb.pp_top.stage3_ex.imm_exted
 probe -create -database waves pp_top_tb.pp_top.hazard_dect.regS_addr_id pp_top_tb.pp_top.hazard_dect.regT_addr_id pp_top_tb.pp_top.hazard_dect.regT_addr_ex pp_top_tb.pp_top.hazard_dect.mem_rd_en_ex
 probe -create -database waves pp_top_tb.pp_top.pp_ctrl.mem_rd_en_ex pp_top_tb.pp_top.pp_ctrl.mem_rd_en_id pp_top_tb.pp_top.pp_ctrl.beq_id pp_top_tb.pp_top.pp_ctrl.beq_ex pp_top_tb.pp_top.pp_ctrl.bgtz_ex pp_top_tb.pp_top.pp_ctrl.bgtz_id pp_top_tb.pp_top.pp_ctrl.bne_ex pp_top_tb.pp_top.pp_ctrl.bne_id pp_top_tb.pp_top.pp_ctrl.alu_src_id pp_top_tb.pp_top.pp_ctrl.alu_src_ex pp_top_tb.pp_top.pp_ctrl.alu_op_id pp_top_tb.pp_top.pp_ctrl.alu_op_ex pp_top_tb.pp_top.pp_ctrl.ext_op_id pp_top_tb.pp_top.pp_ctrl.instr_ex pp_top_tb.pp_top.pp_ctrl.mem_to_reg_id pp_top_tb.pp_top.pp_ctrl.mem_to_reg_ex pp_top_tb.pp_top.pp_ctrl.mem_wr_en_ex pp_top_tb.pp_top.pp_ctrl.mem_wr_en_id
+probe -create -database waves pp_top_tb.pp_top.forwarding.reg_wr_en_wb pp_top_tb.pp_top.forwarding.reg_wr_en_mem pp_top_tb.pp_top.forwarding.reg_wr_addr_wb pp_top_tb.pp_top.forwarding.reg_wr_addr_mem
+probe -create -database waves pp_top_tb.pp_top.hazard_dect.clear_ctrl pp_top_tb.pp_top.hazard_dect.branch
+probe -create -database waves pp_top_tb.pp_top.stage4_mem.mem_rd_data
 
 simvision -input /home/xchen/projects/cpu/361/submission/testbench/.simvision/113941_xchen__autosave.tcl.svcf

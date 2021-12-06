@@ -1,12 +1,15 @@
-xrun -gui -notimingcheck -f moduleList.f -access r -xmelab_args "-delay_mode zero -maxdelays" pp_top_tb.sv 
-
-
-xrun -gui -notimingcheck -f moduleList.f -access r -xmelab_args "-delay_mode zero -maxdelays" scp_top_tb_sum.sv 
 
 
 
-xrun -gui -notimingcheck -f moduleList.f -access r -xmelab_args "-delay_mode zero -maxdelays" scp_top_tb_bills.sv
 
 
 
-xrun -gui -notimingcheck -f moduleList.f -access r -xmelab_args "-delay_mode zero -maxdelays" scp_top_tb_sort.sv
+
+xrun -gui -notimingcheck -f moduleList.f -access r -xmelab_args "-delay_mode zero -maxdelays" scp_top_tb.sv 
+
+
+xrun -64bit -gui -access r pp_top_tb_sum.sv ../fp/* ../lib/or_gate.v ../lib/and_gate.v ../lib/not_gate.v ../lib/xor_gate.v ../lib/nor_gate.v ../alu/ALU.v ../alu/mux8_1_32bit.v ../alu/mux_32.v ../alu/mux8_1_1bit.v ../alu/mux.v ../alu/nor_32bit.v ../alu/SLT_signed.v ../alu/sll_32bit.v ../alu/SLT.v ../alu/or_gate_32.v ../alu/SUB_32bit.v ../alu/and_gate_32.v ../alu/full_adder_32bit.v ../alu/full_adder_1bit.v
+
+xrun -64bit -gui -access r pp_top_tb_bills.sv ../fp/* ../lib/or_gate.v ../lib/and_gate.v ../lib/not_gate.v ../lib/xor_gate.v ../lib/nor_gate.v ../alu/ALU.v ../alu/mux8_1_32bit.v ../alu/mux_32.v ../alu/mux8_1_1bit.v ../alu/mux.v ../alu/nor_32bit.v ../alu/SLT_signed.v ../alu/sll_32bit.v ../alu/SLT.v ../alu/or_gate_32.v ../alu/SUB_32bit.v ../alu/and_gate_32.v ../alu/full_adder_32bit.v ../alu/full_adder_1bit.v
+
+xrun -64bit -gui -access r pp_top_tb_sort.sv ../fp/* ../lib/or_gate.v ../lib/and_gate.v ../lib/not_gate.v ../lib/xor_gate.v ../lib/nor_gate.v ../alu/ALU.v ../alu/mux8_1_32bit.v ../alu/mux_32.v ../alu/mux8_1_1bit.v ../alu/mux.v ../alu/nor_32bit.v ../alu/SLT_signed.v ../alu/sll_32bit.v ../alu/SLT.v ../alu/or_gate_32.v ../alu/SUB_32bit.v ../alu/and_gate_32.v ../alu/full_adder_32bit.v ../alu/full_adder_1bit.v

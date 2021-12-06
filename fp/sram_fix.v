@@ -166,7 +166,7 @@ module sram_fix(cs,oe,we,addr,din,dout);
 
   
   
-  always @(we or addr)
+  always @(we or addr or oe)
     begin    
       if (initNeeded==1) begin
         $display("Now initializing sram");

@@ -42,11 +42,11 @@ wire and_result_2;
 wire ex_mem_to_regS_addr10;
 wire ex_mem_to_regT_addr10;
 
-wire temp1;
+
 wire temp2;
 wire temp3;
 wire temp4;
-wire temp5;
+
 wire temp6;
 wire temp7;
 wire temp8;
@@ -210,12 +210,8 @@ and_gate and4
 
 //memhazard
 //blue part 1
-not_gate not_01_1(
-.x(exmem_rd_eq_idex_rs),
-.z(temp1)
-);
 and_gate and_01_1(
-.x(temp1),
+.x(exmem_rd_eq_idex_rs),
 .y(not_zero_reg_wr_addr_mem),
 .z(temp2)
 );
@@ -244,12 +240,8 @@ and_gate and_r3(
 .z(ex_mem_to_regS_addr01)
 );
 //blue part 2
-not_gate not_01_3(
-.x(exmem_rd_eq_idex_rt),
-.z(temp5)
-);
 and_gate and_01_3(
-.x(temp5),
+.x(exmem_rd_eq_idex_rt),
 .y(not_zero_reg_wr_addr_mem),
 .z(temp6)
 );

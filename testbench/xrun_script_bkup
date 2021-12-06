@@ -1,0 +1,12 @@
+xrun -gui -notimingcheck -f moduleList.f -access r -xmelab_args "-delay_mode zero -maxdelays" pp_top_tb.sv 
+
+
+xrun -gui -notimingcheck -f moduleList.f -access r -xmelab_args "-delay_mode zero -maxdelays" scp_top_tb_sum.sv 
+
+
+
+xrun -gui -notimingcheck -f moduleList.f -access r -xmelab_args "-delay_mode zero -maxdelays" scp_top_tb_bills.sv
+
+
+
+xrun -gui -notimingcheck -f moduleList.f -access r -xmelab_args "-delay_mode zero -maxdelays" scp_top_tb_sort.sv
